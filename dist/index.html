@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezerwacja biletu lotniczego</title>
+</head>
+<body>
+    <div class="city-container">
+        <label>Wybierz lot:</label>
+        <select id="city">
+          <option value="200">Katowice [KTW] - Warszawa [WAW] (200 zł)</option>
+          <option value="500">Katowice [KTW] - Paryż [CDG] (500 zł)</option>
+          <option value="1000">Katowice [KTW] - Nowy Jork [JFK] (1000 zł)</option>
+        </select>
+      </div>
+      <ul class="fly">
+        <li>
+          <div class="seat"></div>
+          <small>Wolne</small>
+        </li>
+        <li>
+          <div class="seat selected"></div>
+          <small>Wybrane</small>
+        </li>
+        <li>
+          <div class="seat occupied"></div>
+          <small>Zajęte</small>
+        </li>
+      </ul>
+  
+      <div class="container">
+        <div class="plane"></div>
+        <div class="row">
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+          <div class="seat"></div>
+        </div>
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+        </div>
+        <div class="row">
+          <div class="seat occupied"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+        </div>
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+        </div>
+        <div class="row">
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+        </div>
+        <div class="row">
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat"></div>
+          <div class="seat occupied"></div>
+          <div class="seat occupied"></div>
+          <div class="seat"></div>
+        </div>
+      </div>
+      <p class="text">
+        Wybrano <span id="count">0</span> miejsca w cenie
+        <span id="total">0</span> zł.
+      </p>
+      <div class="container2">
+        <form class="form" id="form">
+          <h2>Podaj dane do zakupu</h2>
+          <div class="form-control">
+            <label for="username">nazwa użytkownika</label>
+            <input type="text" id="username" placeholder="wpisz nazwę użytkownika"/>
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label for="email">adres E-mail</label>
+            <input type="text" id="email" placeholder="wpisz adres E-mail" />
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label for="password">hasło</label>
+            <input type="password" id="password" placeholder="wpisz hasło" />
+            <small>Error message</small>
+          </div>
+          <div class="form-control">
+            <label for="password2">potwierdź hasło</label>
+            <input type="password" id="password2" placeholder="wpisz hasło ponownie" />
+            <small>Error message</small>
+          </div>
+          <button id="myButton">Zarezerwuj</button>
+          <!-- po potwierdzeniu przyda się komunikat, nawet prymitywny alert -->
+        </form>
+      </div>
+    <script src="bundle.js"></script>
+</body>
+</html>
