@@ -106,26 +106,25 @@
           <h2>Podaj dane do zakupu</h2>
           <div class="form-control">
             <label for="username">nazwa użytkownika</label>
-            <input type="text" id="username" placeholder="wpisz nazwę użytkownika"/>
+            <input type="text" id="username" placeholder="wpisz nazwę użytkownika" required/>
             <small>Error message</small>
           </div>
           <div class="form-control">
             <label for="email">adres E-mail</label>
-            <input type="text" id="email" placeholder="wpisz adres E-mail" />
+            <input type="email" id="email" placeholder="wpisz adres E-mail" required />
             <small>Error message</small>
           </div>
           <div class="form-control">
             <label for="password">hasło</label>
-            <input type="password" id="password" placeholder="wpisz hasło" />
+            <input type="password" id="password" placeholder="wpisz hasło" required />
             <small>Error message</small>
           </div>
           <div class="form-control">
             <label for="password2">potwierdź hasło</label>
-            <input type="password" id="password2" placeholder="wpisz hasło ponownie" />
+            <input type="password" id="password2" placeholder="wpisz hasło ponownie" required />
             <small>Error message</small>
           </div>
           <button id="myButton">Zarezerwuj</button>
-          <!-- po potwierdzeniu przyda się komunikat, nawet prymitywny alert -->
         </form>
       </div>
     <script src="bundle.js"></script>

@@ -569,54 +569,20 @@ var container = document.querySelector(".container");
 var count = document.getElementById("count");
 var total = document.getElementById("total");
 var flySelect = document.getElementById("city");
-var form = document.getElementById('form');
-var username = document.getElementById('username');
-var email = document.getElementById('email');
-var password = document.getElementById('password');
-var password2 = document.getElementById('password2');
+var username = document.getElementById("username");
+var email = document.getElementById("email");
+var password = document.getElementById("password");
+var password2 = document.getElementById("password2");
 var myButton = document.getElementById("myButton");
-
-// populateUI();
 var ticketPrice = +flySelect.value;
-
-// function setFlyData(flyIndex, flyPrice) {
-//   localStorage.setItem("selectedFlyIndex", flyIndex);
-//   localStorage.setItem("selectedFlyPrice", flyPrice);
-// }
-
 function updateSelectedCount() {
   var selectedSeats = document.querySelectorAll(".row .seat.selected");
-
-  // const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
-
-  // localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
-
   var selectedSeatsCount = selectedSeats.length;
   count.innerText = selectedSeatsCount;
   total.innerText = selectedSeatsCount * ticketPrice;
 }
-
-// function populateUI() {
-//   const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
-
-//   if (selectedSeats !== null && selectedSeats.length > 0) {
-//     seats.forEach((seat, index) => {
-//       if (selectedSeats.indexOf(index) > -1) {
-//         seat.classList.add("selected");
-//       }
-//     });
-//   }
-
-//   const selectedFlyIndex = localStorage.getItem("selectedFlyIndex");
-
-//   if (selectedFlyIndex != null) {
-//     flySelect.selectedIndex = selectedFlyIndex;
-//   }
-// }
-
 flySelect.addEventListener("change", function (e) {
   ticketPrice = +e.target.value;
-  // setFlyData(e.target.selectedIndex, e.target.value);
   updateSelectedCount();
 });
 container.addEventListener("click", function (e) {
@@ -625,30 +591,27 @@ container.addEventListener("click", function (e) {
   }
   updateSelectedCount();
 });
-
-// updateSelectedCount();
-
 function showError(input, message) {
   var formControl = input.parentElement;
-  formControl.className = 'form-control error';
-  var small = formControl.querySelector('small');
+  formControl.className = "form-control error";
+  var small = formControl.querySelector("small");
   small.innerText = message;
 }
 function showSuccess(input) {
   var formControl = input.parentElement;
-  formControl.className = 'form-control success';
+  formControl.className = "form-control success";
 }
 function checkEmail(input) {
   var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (re.test(input.value.trim())) {
     showSuccess(input);
   } else {
-    showError(input, 'adres E-mail jest nieprawidłowy');
+    showError(input, "adres E-mail jest nieprawidłowy");
   }
 }
 function checkRequired(inputArr) {
   inputArr.forEach(function (input) {
-    if (input.value.trim() === '') {
+    if (input.value.trim() === "") {
       showError(input, "pole jest wymagane");
     } else {
       showSuccess(input);
@@ -666,19 +629,24 @@ function checkLength(input, min, max) {
 }
 function checkPasswordsMatch(input1, input2) {
   if (input1.value !== input2.value) {
-    showError(input2, 'hasła nie zgadzają się');
+    showError(input2, "hasła nie zgadzają się");
   }
 }
-form.addEventListener('submit', function (e) {
+myButton.addEventListener("click", function (e) {
   e.preventDefault();
   checkRequired([username, email, password, password2]);
   checkLength(username, 6, 15);
   checkLength(password, 6, 25);
   checkEmail(email);
   checkPasswordsMatch(password, password2);
-});
-myButton.addEventListener("click", function () {
-  alert("Wyskakujące okienko!");
+  var usernameValue = username.value;
+  var emailValue = email.value;
+  var passwordValue = password.value;
+  var password2Value = password2.value;
+  if (usernameValue && emailValue && passwordValue && password2Value && !document.querySelector(".error")) {
+    var message = "Witaj, " + usernameValue + "! Twoje zgłoszenie zostało przesłane na adres: " + emailValue;
+    alert(message);
+  }
 });
 })();
 
